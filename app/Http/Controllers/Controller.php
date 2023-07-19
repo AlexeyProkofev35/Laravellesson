@@ -27,10 +27,12 @@ class Controller extends BaseController
     $news = [];
     for ($i=0; $i < $quantityNews; $i++) {
 $news[] = [
+    'id' => ($i ===0) ? ++$i : $i,
     'title' => fake()->jobTitle(),
     'author' => fake()->userName(),
+    'image' => fake()->imageUrl(200, 150),
     'status' => 'ACTIVE',
-    'description' => fake()->text(100),
+    'description' => "<strong>" . fake()->text(100) ."</strong>",
     'created_at' => now()->format('d-m-Y H:i'),
 ];
     }
