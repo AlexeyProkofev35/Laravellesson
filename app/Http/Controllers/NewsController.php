@@ -31,4 +31,12 @@ return view ('admin.news.index', [
         $title = isset($_POST['title']) ? $_POST['title'] : null;
     }
 
+    public function update(Request $request, News $news)
+    {
+        $request->validate([
+            'category_id' => ['required', 'integer', 'exists: categories, id'],
+            'title' => ['required', 'string', 'min:3', 'max:150']
+        ]);
+    }
+
 
